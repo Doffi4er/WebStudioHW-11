@@ -1,0 +1,54 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+}
+
+/* Списки */
+
+ul,
+ol {
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Ссылки */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Изображения */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Адрес */
+
+address {
+    font-style: normal;
+}
+
+/* Кнопки */
+
+button {
+    cursor: pointer;
+}
+
+/* Box-sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
