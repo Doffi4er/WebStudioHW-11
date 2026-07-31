@@ -349,3 +349,31 @@ body {
 .footer-contact:focus {
     color: #2196F3;
 }
+
+@keyframes squareMove {
+    0% {
+        top: 0;
+        left: 0;
+        background-color: #8CDE00; /* Зеленый (старт) */
+    }
+    25% {
+        top: 0;
+        left: 200px;
+        background-color: #2196F3; /* Синий (правый верхний угол) */
+    }
+    50% {
+        top: 200px;
+        left: 200px;
+        background-color: #E91E63; /* Розовый (правый нижний угол) */
+    }
+    75% {
+        top: 200px;
+        left: 0;
+        background-color: #FF9800; /* Оранжевый (левый нижний угол) */
+    }
+    100% {
+        top: 0;
+        left: 0;
+        background-color: #8CDE00; /* Возврат к исходному цвету */
+    }
+}
