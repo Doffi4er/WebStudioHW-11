@@ -36,12 +36,32 @@ body {
     background-color: #FFFFFF;
 }
 
+/* ---------------- АДАПТИВНЫЙ КОНТЕЙНЕР ---------------- */
 .container {
-    width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     padding: 0 15px;
+    margin: 0 auto;
 }
 
+@media screen and (min-width: 480px) {
+    .container {
+        width: 480px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+/* ---------------- HEADER ---------------- */
 .header {
     border-bottom: 1px solid #ECECEC;
 }
@@ -50,20 +70,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    min-height: 60px;
 }
 
-.header-nav {
-    display: flex;
-    align-items: center;
-}
-
-.header-logo {
+.header-logo,
+.footer-logo {
     color: #2196F3;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 24px;
     letter-spacing: 0.03em;
-    margin-right: 93px;
 }
 
 .logo-dark {
@@ -74,71 +89,111 @@ body {
     color: #FFFFFF;
 }
 
-.header-menu {
+.header-nav {
     display: flex;
-    gap: 50px;
+    align-items: center;
 }
 
-.header-menu-item {
-    position: relative; 
-}
-
-.header-menu-link {
-    color: #212121;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    padding: 32px 0;
-    display: block;
-    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.header-menu-link:hover,
-.header-menu-link:focus,
-.header-menu-link.current {
-    color: #2196F3;
-}
-
-.header-menu-link.current::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #2196F3;
-    border-radius: 2px;
+.header-menu {
+    display: none; /* Скрываем на мобильных */
 }
 
 .header-contacts {
-    display: flex;
-    gap: 50px;
+    display: none; /* Скрываем на мобильных */
 }
 
-.header-contact-link {
-    color: #757575;
-    font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    padding: 32px 0;
-    display: block;
-    transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+@media screen and (min-width: 768px) {
+    .header-container {
+        height: 80px;
+    }
+
+    .header-logo {
+        margin-right: 93px;
+    }
+
+    .header-menu {
+        display: flex;
+        gap: 50px;
+    }
+
+    .header-menu-item {
+        position: relative;
+    }
+
+    .header-menu-link {
+        color: #212121;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        padding: 32px 0;
+        display: block;
+        transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .header-menu-link:hover,
+    .header-menu-link:focus,
+    .header-menu-link.current {
+        color: #2196F3;
+    }
+
+    .header-menu-link.current::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #2196F3;
+        border-radius: 2px;
+    }
+
+    .header-contacts {
+        display: flex;
+    }
+
+    .contacts-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-contact-link {
+        color: #757575;
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 }
 
-.header-contact-link:hover,
-.header-contact-link:focus {
-    color: #2196F3;
+@media screen and (min-width: 1200px) {
+    .header-logo {
+        font-size: 26px;
+    }
+
+    .contacts-list {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    .header-contact-link {
+        font-size: 14px;
+        padding: 32px 0;
+    }
 }
 
+/* ---------------- PORTFOLIO ---------------- */
 .portfolio {
-    padding: 94px 0;
+    padding: 60px 0;
 }
 
+/* Фильтры */
 .filter-list {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 50px;
+    row-gap: 15px;
+    margin-bottom: 40px;
 }
 
 .filter-button {
@@ -166,18 +221,38 @@ body {
                 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+@media screen and (min-width: 768px) {
+    .filter-list {
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .portfolio {
+        padding: 94px 0;
+    }
+
+    .filter-list {
+        margin-bottom: 50px;
+    }
+}
+
+/* Сетка карточек портфолио */
 .portfolio-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 30px;
 }
 
 .portfolio-item {
-    width: calc((100% - 60px) / 3);
+    width: 100%;
 }
 
 .portfolio-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background-color: #FFFFFF;
     border: 1px solid #EEEEEE;
     transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -195,7 +270,12 @@ body {
     overflow: hidden; 
 }
 
-/* ---------------- ЗАВДАННЯ 2: Анімація оверлею через @keyframes ---------------- */
+.portfolio-thumb img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Анимация оверлея */
 .portfolio-overlay {
     position: absolute;
     top: 0;
@@ -224,11 +304,24 @@ body {
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
-    padding: 63px 24px;
+    padding: 24px;
+}
+
+@media screen and (min-width: 768px) {
+    .overlay-text {
+        padding: 40px 24px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .overlay-text {
+        padding: 63px 24px;
+    }
 }
 
 .portfolio-content {
     padding: 20px 24px;
+    flex-grow: 1;
 }
 
 .portfolio-title {
@@ -247,22 +340,33 @@ body {
     letter-spacing: 0.03em;
 }
 
+@media screen and (min-width: 768px) {
+    .portfolio-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .portfolio-item {
+        width: calc((100% - 30px) / 2);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .portfolio-item {
+        width: calc((100% - 60px) / 3);
+    }
+}
+
+/* ---------------- FOOTER ---------------- */
 .footer {
     background: #2F303A;
     padding: 60px 0;
+    text-align: center;
 }
 
 .footer-logo {
     display: inline-block;
-    color: #2196F3;
-    font-weight: 700;
-    font-size: 26px;
-    letter-spacing: 0.03em;
     margin-bottom: 20px;
-}
-
-.footer-logo span {
-    color: #FFFFFF;
 }
 
 .footer-contacts-list {
@@ -289,4 +393,10 @@ body {
 .footer-contact:hover,
 .footer-contact:focus {
     color: #2196F3;
+}
+
+@media screen and (min-width: 768px) {
+    .footer {
+        text-align: left;
+    }
 }
